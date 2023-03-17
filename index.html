@@ -98,6 +98,52 @@
                     <!-- VSL -->
                     <div id="vid_6375947cf28d2a000abd5196" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_6375947cf28d2a000abd5196" src="https://images.converteai.net/ae1f0118-4f9c-4890-9d69-ffb7384805e0/players/6375947cf28d2a000abd5196/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_6375947cf28d2a000abd5196" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_6375947cf28d2a000abd5196">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae1f0118-4f9c-4890-9d69-ffb7384805e0/players/6375947cf28d2a000abd5196/player.js",s.async=!0,document.head.appendChild(s);</script>
                     
+                  
+                    
+                     <button class="closen d-none bot-cadastro max-w-lg-50 mx-auto" onclick="formVisibility()"><i class="fa-solid fa-check"></i> REGISTRARSE AHORA!</button>
+
+
+<div class="modal-container d-none-modal" id="form-modal">
+        <div class="modal-overlay modal-container" onclick="formVisibility()"></div>
+        <div class="modal">
+          <div class="modal-closeX" onclick="formVisibility()">x</div>
+          <div class="modal-content form-modal-content">
+			  <h1>ACCEDE AHORA</h1>
+              <i>Rellena tus datos para acceder al contenido del Protocolo Próstata Africana!</i>
+            <form onsubmit="return goToCheckout(this);">
+              <input type="text" id="input-nome" name="nome" placeholder="Su Nombre Completo." required="required"><br>
+              <input type="email" id="input-email" name="email" placeholder="Su correo electrónico." required="required"><br>
+              <input type="text" id="input-telefone" name="telefone" placeholder="Su número de teléfono" required="required"><br>
+              <button class="bot-cadastro" type="submit">Continuar</button>
+            </form>
+          </div>
+        </div>
+    </div>
+	
+<script>
+        // Formulario
+        const formVisibility = () => {
+            document.getElementById("form-modal").classList.toggle("d-none-modal")
+        }
+
+        // Coloque aqui a url(detro das aspas)
+        const urlCheckout = "https://pay.hotmart.com/A76283450L?off=u0p3gtgh&checkoutMode=10"
+
+        //Redirecionamento para o checkout
+        const urlParams = new URLSearchParams(window.location.search);
+        const parametroHotmart = urlParams.get('src');
+
+        const goToCheckout = (form) => {
+          const nome = document.getElementById("input-nome").value
+          const email = document.getElementById("input-email").value
+          const telefone = document.getElementById("input-telefone").value
+          window.location.href = `${urlCheckout}&name=${nome}&email=${email}&phonenumber=${telefone}&src=${parametroHotmart}`
+          return false;
+        }
+    </script>
+                    
+                    
+                    
                     <!-- BOTÃO 1 -->
                     <div id="cta1" class="mt-4 d-none">
                         <a href="https://pay.hotmart.com/W75115719G?checkoutMode=10" class="a-btn"
@@ -551,7 +597,7 @@
     </footer>
 
     <script type="text/javascript">
-        setTimeout(() => { document.getElementById("cta1").classList.remove("d-none"); document.getElementById("cta2").classList.remove("d-none") }, 1710600); // temporização da Call to Action (em milissegundos)
+        setTimeout(() => { document.getElementById("cta1").classList.remove("d-none"); document.getElementById("cta2").classList.remove("d-none") }, 17); // temporização da Call to Action (em milissegundos)
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
