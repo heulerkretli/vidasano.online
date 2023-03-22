@@ -831,15 +831,12 @@
                 <footer class="footer-bRnEYy6369138-element">
                     <p><strong>Copyright 2023 –  Bienestar y Salud ®</strong></p>
                     <p style="margin-top:4px;">Todos los derechos reservados</p>
-                    <div style="display:flex;align-items:center;justify-content:center;margin-top:24px;">
-                        <a id="t" style="margin-right:12px" href="#" target="_blank">
-                            Terminos de Uso
-                        </a> <span style="margin-right:12px">·</span>
-                        <a id="p" href="#" target="_blank">
-                            Privacidad
-                        </a>
-                    </div>
-                    <p style="margin-top:24px;">
+                    
+<div style="display:flex;align-items:center;justify-content:center;margin-top:24px;">
+                        <a id="t" href="#" target="_blank">Terminos de Uso</a><span style="margin-right:12px"></span>
+<a id="p" href="#" target="_blank">Privacidad</a> <span style="margin-right:12px"></span>
+<a id="r" href="#" target="_blank">Políticas de Reembolso</a><span style="margin-right:12px"></span>
+</div><p style="margin-top:24px;">
                         
                         La información presentada en este sitio no es un consejo médico y no reemplaza los tratamientos y diagnósticos realizados por un profesional. Este producto no está destinado a ser diagnóstico, tratamientos, curas o prevención de enfermedades. *Los resultados pueden variar de persona a persona.
                         
@@ -847,7 +844,8 @@
                     <script>
                         const pr = window.location.href + "/privacidade",
                             te = window.location.href + "/termos";
-                        document.getElementById("p").setAttribute("href", pr), document.getElementById("t").setAttribute("href", te);
+                            re = window.location.href + "/reembolso";
+                        document.getElementById("p").setAttribute("href", pr), document.getElementById("t").setAttribute("href", te), document.getElementById("r").setAttribute("href", re);
                     </script>
                 </footer>
             </div>
