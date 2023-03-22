@@ -3,6 +3,21 @@
 
 <head>
 
+    <link rel="preload"
+        href="https://scripts.converteai.net/34764d5b-908e-430a-a185-29653d390cf7/players/641a8a1576fbd100096117fe/player.js"
+        as="script">
+    <link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+    <link rel="preload"
+        href="https://images.converteai.net/34764d5b-908e-430a-a185-29653d390cf7/players/641a8a1576fbd100096117fe/thumbnail.jpg"
+        as="image">
+    <link rel="preload"
+        href="https://cdn.converteai.net/34764d5b-908e-430a-a185-29653d390cf7/641a89fe61e76200086547aa/playlist.m3u8"
+        as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +28,7 @@
     <link rel="stylesheet" href="./assets/css/com.css">
 
     <!-- Título da Página -->
-    <title>Bienestar y Salud 2</title>
+    <title>Bienestar y Salud</title>
 
     <style type="text/css">
         header {
@@ -38,23 +53,41 @@
 
                     <!-- Headline -->
                     <br>
-                    <h3 class="my-4"><b>Felicitaciones, tomó la decisión correcta, todo salió bien con su compra...</b></h3>               
-                    <h6 class="my-4"><b>Atención, no cierres ni actualices esta página, esto puede ocasionar errores en tu compra.</b></h6>
+                    <h1 class="my-4"><b>Felicitaciones, tomó la decisión correcta, todo salió bien con su compra...</b>
+                    </h1>
+                    <h6 class="my-4"><b>Atención, no cierres ni actualices esta página, esto puede ocasionar errores en
+                            tu compra, vea cómo acceder en el siguiente video...</b></h6>
                     <br>
-                    
+
                     <!-- VSL -->
-                    <div style="padding:56.25% 0 0 0;position:relative;"><iframe frameborder="0" allowfullscreen
-                            src="https://scripts.converteai.net/fe947590-e9e2-48f3-87cf-5b819dc8293d/players/62f92321a90dbc000a0e8fd0/embed.html"
-                            id="ifr_62f92321a90dbc000a0e8fd0"
-                            style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                            referrerpolicy="origin"></iframe></div>
+                    <div id="vid_641a8a1576fbd100096117fe" style="position:relative;width:100%;padding: 56.25% 0 0;">
+                        <img id="thumb_641a8a1576fbd100096117fe"
+                            src="https://images.converteai.net/34764d5b-908e-430a-a185-29653d390cf7/players/641a8a1576fbd100096117fe/thumbnail.jpg"
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;">
+                        <div id="backdrop_641a8a1576fbd100096117fe"
+                            style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);">
+                        </div>
+                    </div>
+                    <script type="text/javascript"
+                        id="scr_641a8a1576fbd100096117fe">var s = document.createElement("script"); s.src = "https://scripts.converteai.net/34764d5b-908e-430a-a185-29653d390cf7/players/641a8a1576fbd100096117fe/player.js", s.async = !0, document.head.appendChild(s);</script>
 
                     <!-- Botão 1 -->
                     <div id="cta1" class="mt-4 d-none">
-                        <a href="https://pay.kiwify.com.br/bSI8CGY" class="a-btn" style="text-decoration: none;">
-                            <span class="span-btn">QUERO OBTER ACESSO!</span>
-                            <span class="span-btn2">(atenção: vagas limitadas)</span>
-                        </a>
+
+                        <!-- HOTMART - Upsell Widget -->
+                        <div id="box_hotmart"></div>
+                        <script src="https://pay.hotmart.com/assets/js/hotmart.upsell_checkout.js"></script>
+
+                        <script>
+                            opts = {
+                                key: 'USL-96115-283497-35f48da42afde5edca403b6973043380',
+                                width: '650',
+                                height: '420'
+                            };
+                            Upsell.Widget.show(opts);
+                        </script>
+                        <!-- HOTMART - Upsell Widget [end] -->
+
                     </div>
                 </div>
             </div>
@@ -71,14 +104,14 @@
     </script>
 
     <!--FIM DO SCRIPT-->
-    
+
     <footer class="bg-dark py-3 text-center">
         <div class="text-white"><a href="termos.html" class="text-white">Terminos de Uso</a> | <a
                 href="privacidade.html" class="text-white">Privacidad</a></div>
     </footer>
 
     <script type="text/javascript">
-        setTimeout(() => { document.getElementById("cta1").classList.remove("d-none"); document.getElementById("cta2").classList.remove("d-none") }, 1698000); // temporização da Call to Action (em milissegundos)
+        setTimeout(() => { document.getElementById("cta1").classList.remove("d-none"); document.getElementById("cta2").classList.remove("d-none") }, 199800); // temporização da Call to Action (em milissegundos)
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
