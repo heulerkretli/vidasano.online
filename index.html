@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Los resultados pueden variar de persona a persona.">
-
+  
   <title>Calculadora de ROI</title>
 <style>
     body {
@@ -25,9 +25,6 @@
       background-color: #fff;
       padding: 20px;
       border-radius: 5px;
-      max-width: 500px;
-      margin: 0 auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     label {
@@ -45,18 +42,11 @@
 
     button {
       padding: 10px 20px;
-      background-color: #4CAF50;
+      background-color: #333;
       color: #fff;
       border: none;
       border-radius: 3px;
       cursor: pointer;
-      margin-top: 20px;
-      width: 100%;
-    }
-
-    button:last-child {
-      background-color: #333;
-      margin-top: 10px;
     }
 
     h2 {
@@ -201,10 +191,10 @@
   <p>Despesas: <span id="despesas">0</span></p>
   <p>Lucro Líquido: <span id="lucroLiquido">0</span></p>
   <p>ROI: <span id="roi">0%</span></p>
-  <p>Conversão de Upsell 1: <span id="upsell1Conversion">0%</span></p>
-  <p>Conversão de Downsell 1: <span id="downsell1Conversion">0%</span></p>
-  <p>Conversão de Upsell 2: <span id="upsell2Conversion">0%</span></p>
-  <p>Conversão de Downsell 2: <span id="downsell2Conversion">0%</span></p>
+  <p>Conversão de Upsell 1 em relação ao Front: <span id="upsell1Conversion">0%</span></p>
+  <p>Conversão de Downsell 1 em relação ao Front: <span id="downsell1Conversion">0%</span></p>
+  <p>Conversão de Upsell 2 em relação ao Front: <span id="upsell2Conversion">0%</span></p>
+  <p>Conversão de Downsell 2 em relação ao Front: <span id="downsell2Conversion">0%</span></p>
 
 <script>
   function saveReport() {
@@ -214,10 +204,10 @@
       'Despesas: ' + document.getElementById('despesas').innerHTML + '\n' +
       'Lucro Líquido: ' + document.getElementById('lucroLiquido').innerHTML + '\n' +
       'ROI: ' + document.getElementById('roi').innerHTML + '\n' +
-      'Conversão de Upsell 1: ' + document.getElementById('upsell1Conversion').innerHTML + '\n' +
-      'Conversão de Downsell 1: ' + document.getElementById('downsell1Conversion').innerHTML + '\n' +
-      'Conversão de Upsell 2: ' + document.getElementById('upsell2Conversion').innerHTML + '\n' +
-      'Conversão de Downsell 2: ' + document.getElementById('downsell2Conversion').innerHTML;
+      'Conversão de Upsell 1 em relação ao Front: ' + document.getElementById('upsell1Conversion').innerHTML + '\n' +
+      'Conversão de Downsell 1 em relação ao Front: ' + document.getElementById('downsell1Conversion').innerHTML + '\n' +
+      'Conversão de Upsell 2 em relação ao Front: ' + document.getElementById('upsell2Conversion').innerHTML + '\n' +
+      'Conversão de Downsell 2 em relação ao Front: ' + document.getElementById('downsell2Conversion').innerHTML;
 
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(reportContent));
