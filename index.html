@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de ROI</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: inline-block;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      width: 100px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    button:last-child {
+      background-color: #333;
+      margin-top: 10px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function updateInputs(inputId) {
+      var input = document.getElementById(inputId);
+      if (input.value === '0') {
+        input.value = '';
+      }
+    }
+
+    function calculateROI() {
+      // Obter os valores dos inputs
+      var front = parseFloat(document.getElementById('front').value);
+      var backredirect = parseFloat(document.getElementById('backredirect').value);
+      var upsell1 = parseFloat(document.getElementById('upsell1').value);
+      var downsell1 = parseFloat(document.getElementById('downsell1').value);
+      var upsell2 = parseFloat(document.getElementById('upsell2').value);
+      var downsell2 = parseFloat(document.getElementById('downsell2').value);
+      var quantidadeFront = parseFloat(document.getElementById('quantidadeFront').value);
+      var quantidadeBackredirect = parseFloat(document.getElementById('quantidadeBackredirect').value);
+      var quantidadeUpsell1 = parseFloat(document.getElementById('quantidadeUpsell1').value);
+      var quantidadeDownsell1 = parseFloat(document.getElementById('quantidadeDownsell1').value);
+      var quantidadeUpsell2 = parseFloat(document.getElementById('quantidadeUpsell2').value);
+      var quantidadeDownsell2 = parseFloat(document.getElementById('quantidadeDownsell2').value);
+      var reembolso = parseFloat(document.getElementById('reembolso').value);
+      var chargeback = parseFloat(document.getElementById('chargeback').value);
+      var trafego = parseFloat(document.getElementById('trafego').value);
+      var outros = parseFloat(document.getElementById('outros').value);
+      var impostos = parseFloat(document.getElementById('impostos').value);
+      var taxaPlataformaPorcentagem = parseFloat(document.getElementById('taxaPlataformaPorcentagem').value);
+      var taxaPlataformaFixa = parseFloat(document.getElementById('taxaPlataformaFixa').value);
+
+      // Cálculos
+      var faturamentoBruto = (front + backredirect + upsell1 + downsell1 + upsell2 + downsell2) *
+        (quantidadeFront + quantidadeBackredirect + quantidadeUpsell1 + quantidadeDownsell1 + quantidadeUpsell2 + quantidadeDownsell2);
+      var quantidadeTotal = quantidadeFront + quantidadeBackredirect + quantidadeUpsell1 + quantidadeDownsell1 + quantidadeUpsell2 + quantidadeDownsell2;
+      var despesas = reembolso + chargeback + trafego + outros + (faturamentoBruto * (impostos / 100)) + (taxaPlataformaFixa * quantidadeTotal);
+      var taxaPlataforma = faturamentoBruto * (taxaPlataformaPorcentagem / 100);
+      despesas += taxaPlataforma;
+
+      var lucroLiquido = faturamentoBruto - despesas;
+      var roi = (lucroLiquido / despesas) * 100;
+      var upsell1Conversion = (upsell1 / front) * 100;
+      var downsell1Conversion = (downsell1 / front) * 100;
+      var upsell2Conversion = (upsell2 / front) * 100;
+      var downsell2Conversion = (downsell2 / front) * 100;
+
+      // Exibir os resultados
+      document.getElementById('faturamentoBruto').innerHTML = faturamentoBruto.toFixed(2);
+      document.getElementById('despesas').innerHTML = despesas.toFixed(2);
+      document.getElementById('lucroLiquido').innerHTML = lucroLiquido.toFixed(2);
+      document.getElementById('roi').innerHTML = roi.toFixed(2) + '%';
+      document.getElementById('upsell1Conversion').innerHTML = upsell1Conversion.toFixed(2) + '%';
+      document.getElementById('downsell1Conversion').innerHTML = downsell1Conversion.toFixed(2) + '%';
+      document.getElementById('upsell2Conversion').innerHTML = upsell2Conversion.toFixed(2) + '%';
+      document.getElementById('downsell2Conversion').innerHTML = downsell2Conversion.toFixed(2) + '%';
+
+  // Exibir o popup
+  alert('Parabéns, deu tudo certo!');
+}
+
+</script>
+</head>
+<body>
+  <h1>Calculadora de ROI</h1>
+  <form>
+    <h2>Faturamento</h2>
+    <label for="front">Front:</label>
+    <input type="number" id="front" value="0" onclick="updateInputs('front')">
+    <label for="quantidadeFront">Quantidade:</label>
+    <input type="number" id="quantidadeFront" value="0" onclick="updateInputs('quantidadeFront')"><br>
+
+    <label for="backredirect">Backredirect:</label>
+    <input type="number" id="backredirect" value="0" onclick="updateInputs('backredirect')">
+    <label for="quantidadeBackredirect">Quantidade:</label>
+    <input type="number" id="quantidadeBackredirect" value="0" onclick="updateInputs('quantidadeBackredirect')"><br>
+
+    <label for="upsell1">Upsell 1:</label>
+    <input type="number" id="upsell1" value="0" onclick="updateInputs('upsell1')">
+    <label for="quantidadeUpsell1">Quantidade:</label>
+    <input type="number" id="quantidadeUpsell1" value="0" onclick="updateInputs('quantidadeUpsell1')"><br>
+
+    <label for="downsell1">Downsell 1:</label>
+    <input type="number" id="downsell1" value="0" onclick="updateInputs('downsell1')">
+    <label for="quantidadeDownsell1">Quantidade:</label>
+    <input type="number" id="quantidadeDownsell1" value="0" onclick="updateInputs('quantidadeDownsell1')"><br>
+
+    <label for="upsell2">Upsell 2:</label>
+    <input type="number" id="upsell2" value="0" onclick="updateInputs('upsell2')">
+    <label for="quantidadeUpsell2">Quantidade:</label>
+    <input type="number" id="quantidadeUpsell2" value="0" onclick="updateInputs('quantidadeUpsell2')"><br>
+
+    <label for="downsell2">Downsell 2:</label>
+    <input type="number" id="downsell2" value="0" onclick="updateInputs('downsell2')">
+    <label for="quantidadeDownsell2">Quantidade:</label>
+    <input type="number" id="quantidadeDownsell2" value="0" onclick="updateInputs('quantidadeDownsell2')"><br>
+
+    <h2>Despesas</h2>
+    <label for="reembolso">Reembolso:</label>
+    <input type="number" id="reembolso" value="0" onclick="updateInputs('reembolso')"><br>
+
+    <label for="chargeback">Chargeback:</label>
+    <input type="number" id="chargeback" value="0" onclick="updateInputs('chargeback')"><br>
+
+    <label for="trafego">Tráfego:</label>
+    <input type="number" id="trafego" value="0" onclick="updateInputs('trafego')"><br>
+
+    <label for="outros">Outros:</label>
+    <input type="number" id="outros" value="0" onclick="updateInputs('outros')"><br>
+
+    <h2>Impostos e Taxas</h2>
+    <label for="impostos">Impostos (%):</label>
+    <input type="number" id="impostos" value="0" onclick="updateInputs('impostos')"><br>
+
+    <label for="taxaPlataformaPorcentagem">Taxa da Plataforma (%):</label>
+    <input type="number" id="taxaPlataformaPorcentagem" value="0" onclick="updateInputs('taxaPlataformaPorcentagem')"><br>
+
+    <label for="taxaPlataformaFixa">Taxa da Plataforma (Fixa):</label>
+    <input type="number" id="taxaPlataformaFixa" value="0" onclick="updateInputs('taxaPlataformaFixa')"><br>
+
+    <button type="button" onclick="calculateROI()">Calcular</button>
+    <button type="button" onclick="saveReport()">Salvar Relatório</button>
+
+  </form>
+
+  <h2>Resultados</h2>
+  <p>Faturamento Bruto: <span id="faturamentoBruto">0</span></p>
+  <p>Despesas: <span id="despesas">0</span></p>
+  <p>Lucro Líquido: <span id="lucroLiquido">0</span></p>
+  <p>ROI: <span id="roi">0%</span></p>
+  <p>Conversão de Upsell 1 em relação ao Front: <span id="upsell1Conversion">0%</span></p>
+  <p>Conversão de Downsell 1 em relação ao Front: <span id="downsell1Conversion">0%</span></p>
+  <p>Conversão de Upsell 2 em relação ao Front: <span id="upsell2Conversion">0%</span></p>
+  <p>Conversão de Downsell 2 em relação ao Front: <span id="downsell2Conversion">0%</span></p>
+
+<script>
+  function saveReport() {
+    var currentDate = new Date();
+    var fileName = 'relatorio_' + currentDate.toISOString().replace(/[-:]/g, '').split('.')[0] + '.txt';
+    var reportContent = 'Faturamento Bruto: ' + document.getElementById('faturamentoBruto').innerHTML + '\n' +
+      'Despesas: ' + document.getElementById('despesas').innerHTML + '\n' +
+      'Lucro Líquido: ' + document.getElementById('lucroLiquido').innerHTML + '\n' +
+      'ROI: ' + document.getElementById('roi').innerHTML + '\n' +
+      'Conversão de Upsell 1 em relação ao Front: ' + document.getElementById('upsell1Conversion').innerHTML + '\n' +
+      'Conversão de Downsell 1 em relação ao Front: ' + document.getElementById('downsell1Conversion').innerHTML + '\n' +
+      'Conversão de Upsell 2 em relação ao Front: ' + document.getElementById('upsell2Conversion').innerHTML + '\n' +
+      'Conversão de Downsell 2 em relação ao Front: ' + document.getElementById('downsell2Conversion').innerHTML;
+
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(reportContent));
+    element.setAttribute('download', fileName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+</script>
+
+</body>
+</html>
